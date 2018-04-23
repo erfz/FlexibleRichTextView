@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.widget.TextView;
 
 import org.scilab.forge.jlatexmath.core.AjLatexMath;
 import org.scilab.forge.jlatexmath.core.Insets;
@@ -20,7 +19,7 @@ import java.util.List;
  * Created by daquexian on 17-2-16.
  */
 
-public class LaTeXtView extends TextView {
+public class LaTeXtView extends android.support.v7.widget.AppCompatTextView {
     public LaTeXtView(Context context) {
         super(context);
     }
@@ -32,13 +31,13 @@ public class LaTeXtView extends TextView {
         for (final TextWithFormula.Formula formula : formulas) {
             TeXFormula teXFormula = TeXFormula.getPartialTeXFormula(formula.content);
 
-           try {
+            try {
                 Bitmap bitmap = getBitmap(teXFormula);
-                if (bitmap.getWidth() > FlexibleRichTextView.MAX_IMAGE_WIDTH) {
-                    bitmap = Bitmap.createScaledBitmap(bitmap, FlexibleRichTextView.MAX_IMAGE_WIDTH,
-                            bitmap.getHeight() * FlexibleRichTextView.MAX_IMAGE_WIDTH / bitmap.getWidth(),
-                            false);
-                }
+//                if (bitmap.getWidth() > FlexibleRichTextView.MAX_IMAGE_WIDTH) {
+//                    bitmap = Bitmap.createScaledBitmap(bitmap, FlexibleRichTextView.MAX_IMAGE_WIDTH,
+//                            bitmap.getHeight() * FlexibleRichTextView.MAX_IMAGE_WIDTH / bitmap.getWidth(),
+//                            false);
+//                }
 
                 builder.setSpan(new CenteredImageSpan(getContext(), bitmap),
                         formula.start, formula.end, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
@@ -92,7 +91,7 @@ public class LaTeXtView extends TextView {
                 .setInterLineSpacing(TeXConstants.UNIT_SP,
                         AjLatexMath.getLeading(getPaint().getTextSize() / getPaint().density))
                 .build();
-        icon.setInsets(new Insets(5, 5, 5, 5));
+        icon.setInsets(new Insets(0, 5, 0, 5));
 
         Bitmap image = Bitmap.createBitmap(icon.getIconWidth(), icon.getIconHeight(),
                 Bitmap.Config.ARGB_4444);

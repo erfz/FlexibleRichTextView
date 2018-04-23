@@ -1,7 +1,7 @@
 package com.example.daquexian.flexiblerichtextview;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.daquexian.flexiblerichtextview.Attachment;
 import com.daquexian.flexiblerichtextview.FlexibleRichTextView;
@@ -12,8 +12,6 @@ import org.scilab.forge.jlatexmath.core.AjLatexMath;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.kbiakov.codeview.classifier.CodeProcessor;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // train classifier on app start
-        CodeProcessor.init(this);
         AjLatexMath.init(this); // init library: load fonts, create paint, etc.
 
         List<Attachment> attachments = new ArrayList<>();

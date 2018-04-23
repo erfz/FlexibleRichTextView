@@ -70,7 +70,7 @@ public class QuoteView extends LinearLayout {
         return quoteView;
     }
 
-    private void collapse(){
+    private void collapse() {
         mTextView.setVisibility(VISIBLE);
         mTextView.setText(mTextView.getText()); // without it, textview will show the last three lines
         mTextView.setEllipsize(TextUtils.TruncateAt.END);
@@ -78,7 +78,7 @@ public class QuoteView extends LinearLayout {
         mCollapsed = true;
     }
 
-    private void expand(){
+    private void expand() {
         mTextView.setVisibility(GONE);
         mFlexibleRichTextView.setVisibility(VISIBLE);
         mCollapsed = false;
